@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Data Writer</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="writer.css">
+</head>
+<body>
+  <main id="main">
+    <div id="dropBox" data-open="true">
+      <form id="fileNameForm">
+        <div class="dropInput">
+          <label for="area">SELECT AREA</label>
+          <input id="area" type="text" data-file="area" list="areas">
+          <datalist id="areas">
+            <option value="PB"></option>
+            <option value="GB"></option>
+          </datalist>
+        </div>
+        <div class="dropInput">
+          <label for="startDate">START DATE</label>
+          <input type="date" id="startDate" data-file="start">
+        </div>
+        <div class="dropInput">
+          <label for="endDate">END DATE</label>
+          <input type="date" id="endDate" data-file="end">
+        </div>
+        <div id="outputBox">
+          <div id="fileName">
+            FILENAME
+          </div>
+        </div>
+        <div id="continueBox">
+          <button type="button" id="continueDownload">CONTINUE</button>
+        </div>
+      </form>
+    </div>
+    <div id="dropBox2" data-open="true">
+      <form id="messageForm">
+        <div class="dropInput">
+          <label for="code">CODE</label>
+          <input id="code" type="text" list="codes" data-message="code">
+          <datalist id="codes">
+            <option value="Code 14"></option>
+            <option value="Code 15"></option>
+          </datalist>
+        </div>
+        <div class="dropInput">
+          <label for="led">LED</label>
+          <input id="led" type="text" list="leds" data-message="led">
+          <datalist id="leds">
+            <option value="LED ON"></option>
+            <option value="LED OFF"></option>
+          </datalist>
+        </div>
+        <div id="messageBox">
+          <div id="message"></div>
+        </div>
+        <div id="sendBox">
+          <button type="button" id="sendMessage">SEND</button>
+        </div>
+      </form>
+    </div>
+    <div id="header">
+      <div id="name">
+        <div>
+          DATA-CHARTER
+        </div>
+      </div>
+      <div id="iconBox">
+        <img src="icon-192x192.png" alt="icon">
+      </div>
+    </div>
+
+    <div id="totalBox">
+      <div id="totalAlarms">
+        ALARMS <span id="alarmTotal"></span>
+      </div>
+      <div id="totalAddresses">
+        <span id="addressesTotal"></span> ADDRESSES
+      </div>
+    </div>
+    <div id="writingBox">
+      <textarea id="writingPad"></textarea>
+    </div>
+
+    <div id="controls">
+      <div id="controlsInner">
+        <button id="download" type="button">DOWNLOAD</button>
+        <button id="whatsapp" type="button" data-saved="false" class="">WHATSAPP</button>
+      </div>
+    </div>
+    <div id="topFive">
+      <div id="topFiveCount">
+        TOP-5 <span id="countFive"></span>
+      </div>
+      <div id="topFivePercent">
+        <span id="percentTopFive"></span> OF TOTAL
+      </div>
+    </div>
+    <div id="canvasOuter">
+      <div id="canvasBox">
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+    <div id="addRemoveBox">
+      <div id="inputBox">
+        <input type="text" id="alarmInput" name="alarmInput" placeholder="ADD ALARM">
+      </div>
+      <div id="inputBoxBtns">
+        <div id="innerInputBox">
+          <button id="delete" type="button">DELETE</button>
+          <button id="write" type="button">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="writer.js"></script>
+  <script src="chart.min.js"></script>
+</body>
+</html>
