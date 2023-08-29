@@ -31,6 +31,7 @@ globalThis.workerX = worker
 
 worker.addEventListener("message", (event) => {
   let { msg, data } = event.data;
+  let parsed;
   
  if (msg === "read") {
     if(data){
