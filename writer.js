@@ -32,13 +32,15 @@ globalThis.workerX = worker
 worker.addEventListener("message", (event) => {
   let { msg, data } = event.data;
   
-  if (msg === "read") {
-    const parsed = JSON.parse(data)
-    if(!data){
-      data = {"alarms":[]}
+ if (msg === "read") {
+    if(data){
+      parsed = JSON.parse(data)
+      drawGraph(parsed);
+    } else {
+      data = '{"alarms":[]}'
     }
+    
     addValue("writingPad", data);
-    drawGraph(parsed);
     alarmInput.value = "";
     worker.postMessage({msg:"totals", data})
   }
