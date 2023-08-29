@@ -473,10 +473,6 @@
   "description": "A mobile data-writer that makes it easy for you to gather and analyze data while on the go - while completely offline!",
   "dir": "ltr",
   "lang": "en",
-  "display_override": [
-    "browser",
-    "window-controls-overlay"
-  ],
   "categories": [
     "productivity",
     "security"
