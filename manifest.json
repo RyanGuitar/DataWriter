@@ -9,18 +9,6 @@
   "short_name": "WRITER",
   "icons": [
     {
-      "src": "maskable_icon.png",
-      "sizes": "196x196",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "maskable_icon.png",
-      "sizes": "196x196",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
       "src": "windows11/SmallTile.scale-100.png",
       "sizes": "71x71"
     },
