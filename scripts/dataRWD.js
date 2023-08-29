@@ -9,7 +9,7 @@ import {
 function deleteAlarm() {
   let updatedData = getValue("writingPad");
   const alarmInput = getId("alarmInput")
-  const alarmInputValue = alarmInput.value;
+  const alarmInputValue = alarmInput.value.trim();
   if (!updatedData || !alarmInputValue) return;
   getId("whatsapp").dataset.saved = "true"
   whatsappStatus()
@@ -28,7 +28,7 @@ function deleteAlarm() {
 function getData() {
   let updatedData = getValue("writingPad");
   updatedData = updatedData ? JSON.parse(updatedData) : {"alarms": []};
-  globalThis.inputAlarm = alarmInput.value;
+  globalThis.inputAlarm = getId("alarmInput").value.trim();
   const inputAlarm = globalThis.inputAlarm;
   if (!inputAlarm) return;
   getId("whatsapp").dataset.saved = "false"
