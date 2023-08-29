@@ -50,16 +50,6 @@ function changeCaptureRed(){
   changeColor("save", "black")
 }
 
-function downloadFile(text, fileName) {
-  const blob = new Blob([text], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url
-  link.download = `${fileName}.txt`;
-  link.click();
-  URL.revokeObjectURL(url);
-}
-
 function removeClick(id, fn){
   getId(id).removeEventListener("click", fn)
 }
@@ -76,7 +66,6 @@ export {
   addChange,
   changeCaptureGreen,
   changeCaptureRed,
-  downloadFile,
   addToId,
   removeClick,
 }

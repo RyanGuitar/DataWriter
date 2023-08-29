@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Data Writer</title>
-  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data-Writer</title>
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="writer.css">
 </head>
@@ -23,6 +23,7 @@
           <label for="startDate">START DATE</label>
           <input type="date" id="startDate" data-file="start">
         </div>
+
         <div class="dropInput">
           <label for="endDate">END DATE</label>
           <input type="date" id="endDate" data-file="end">
@@ -33,6 +34,7 @@
           </div>
         </div>
         <div id="continueBox">
+          <button type="button" id="cancelDownload">CANCEL</button>
           <button type="button" id="continueDownload">CONTINUE</button>
         </div>
       </form>
@@ -59,18 +61,29 @@
           <div id="message"></div>
         </div>
         <div id="sendBox">
+          <button type="button" id="cancelSend">CANCEL</button>
           <button type="button" id="sendMessage">SEND</button>
         </div>
       </form>
     </div>
+    <div id="dropBox3" data-open="true">
+      <form>
+        <div id="uploadBox">
+          <button type="button" id="resetWriter">RESET WRITER</button>
+          <label for="uploadFile" class="custom-button">Upload File</label>
+          <input type="file" id="uploadFile" accept=".txt">
+        </div>
+      </form>
+    </div>
+
     <div id="header">
       <div id="name">
         <div>
-          DATA-CHARTER
+          DATA-WRITER
         </div>
       </div>
       <div id="iconBox">
-        <img src="icon-192x192.png" alt="icon">
+        <img src="blueDot.png" alt="icon-bluedot">
       </div>
     </div>
 
