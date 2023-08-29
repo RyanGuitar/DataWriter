@@ -34,6 +34,9 @@ worker.addEventListener("message", (event) => {
   
   if (msg === "read") {
     const parsed = JSON.parse(data)
+    if(!data){
+      data = {"alarms":[]}
+    }
     addValue("writingPad", data);
     drawGraph(parsed);
     alarmInput.value = "";
