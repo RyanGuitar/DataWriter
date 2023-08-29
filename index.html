@@ -4,11 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data-Writer</title>
-    <script type="module">
-      import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
-      const el = document.createElement('pwa-update');
-      document.body.appendChild(el);
-    </script>
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="writer.css">
 </head>
@@ -135,6 +130,11 @@
       </div>
     </div>
   </main>
+<script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('pwabuilder-sw.js')
+  }
+</script>
 
   <script type="module" src="writer.js"></script>
   <script src="chart.min.js"></script>
