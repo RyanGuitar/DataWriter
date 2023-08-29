@@ -79,7 +79,7 @@ function makeMessage(e) {
 function sendWhatsapp() {
   const message = getId("message").innerHTML;
   const link = document.createElement("a");
-  link.href = `whatsapp://send?phone=+27815677207&text=${message}`;
+  link.href = `whatsapp://send?phone=+27713910764&text=${message}`;
   link.click();
   callDrop();
   getId("whatsapp").dataset.saved = "true";
