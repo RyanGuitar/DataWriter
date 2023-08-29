@@ -8,8 +8,8 @@ let barChart;
 function drawGraph(data) {
   let mergedData = data.alarms;
   mergedData.sort((a, b) => b.count - a.count);
-  const topN = 200;
-  mergedData = mergedData.slice(0, topN);
+//  const topN = 200;
+//  mergedData = mergedData.slice(0, topN);
   globalThis.alarmLabels = mergedData.map(data => data.alarm);
   const alarmLabels = globalThis.alarmLabels
   const alarmCounts = mergedData.map(data => data.count);
