@@ -11,7 +11,7 @@ onmessage = (event) => {
 
   }
   if (msg === "merge"){
-    let mergedAlarms = mergeAlarmsWithCount(data.alarms);
+    const mergedAlarms = mergeAlarmsWithCount(data.alarms);
     data.alarms = mergedAlarms.map(({ alarm, count }) => ({ alarm, count }));
     writeFile(JSON.stringify(data))
   }
@@ -23,16 +23,19 @@ onmessage = (event) => {
   if(msg === "topFive"){
     sumTopFiveCounts(data)
   }
+  if (msg === "clear"){
+    writeFile(`{"alarms":[]}`)
+  }
 }
 
 function mergeAlarmsWithCount(data) {
-  let mergedAlarms = {};
+  const mergedAlarms = {};
 
   data.forEach(({ alarm, count }) => {
-    if (!mergedAlarms[alarm]) {
-      mergedAlarms[alarm] = +count;
-    } else {
+    if (mergedAlarms[alarm]) {
       mergedAlarms[alarm] += +count;
+    } else {
+      mergedAlarms[alarm] = +count;
     }
   });
 
@@ -73,7 +76,7 @@ async function readFile(msg = ""){
 
 function sumAlarmCounts(data) {
   let total = 0;
-  let parsed = JSON.parse(data)
+  const parsed = JSON.parse(data)
   const alarms = parsed.alarms;
   for (const alarm of alarms) {
     total += alarm.count;
@@ -83,7 +86,7 @@ function sumAlarmCounts(data) {
 
 function sumTopFiveCounts(data){
   let total = 0;
-  let parsed = JSON.parse(data)
+  const parsed = JSON.parse(data)
   const alarms = parsed.alarms;
   alarms.sort((a, b) => b.count - a.count);
   const topFive = alarms.slice(0, 5)
